@@ -30,8 +30,4 @@ Cada exercício é independente e pode ser executado individualmente.
 7. **Gerador de Tabuada**
    - Mostra a tabuada de um número de 1 a 10 usando laço `for`.
 
-## 🚀 Como Executar
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/SEU-USUARIO/nome-do-repositorio.git
