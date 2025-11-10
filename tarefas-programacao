@@ -1,0 +1,181 @@
+Calculadora de Desconto
+
+Arquivo: CalculadoraDesconto.java
+
+import java.util.Scanner;
+
+public class CalculadoraDesconto {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite o valor do produto: R$ ");
+        double valor = sc.nextDouble();
+
+        System.out.print("Digite a porcentagem de desconto: ");
+        double desconto = sc.nextDouble();
+
+        double valorDesconto = valor * (desconto / 100);
+        double precoFinal = valor - valorDesconto;
+
+        System.out.printf("Desconto: R$ %.2f\nPreço final: R$ %.2f\n", valorDesconto, precoFinal);
+
+        sc.close();
+    }
+}
+
+Calculadora de ITBI
+
+Arquivo: CalculadoraITBI.java
+
+import javax.swing.JOptionPane;
+
+public class CalculadoraITBI {
+    public static void main(String[] args) {
+        double valorTransacao = Double.parseDouble(JOptionPane.showInputDialog("Valor de transação do imóvel:"));
+        double valorVenal = Double.parseDouble(JOptionPane.showInputDialog("Valor venal do imóvel:"));
+        double percentual = Double.parseDouble(JOptionPane.showInputDialog("Porcentagem do ITBI:"));
+
+        double baseCalculo = Math.max(valorTransacao, valorVenal);
+        double imposto = baseCalculo * (percentual / 100);
+
+        JOptionPane.showMessageDialog(null, String.format("Base de cálculo: R$ %.2f\nITBI a pagar: R$ %.2f", baseCalculo, imposto));
+    }
+}
+
+ 3. Sistema de Avaliação
+
+Arquivo: SistemaAvaliacao.java
+
+import javax.swing.JOptionPane;
+
+public class SistemaAvaliacao {
+    public static void main(String[] args) {
+        double prova1 = Double.parseDouble(JOptionPane.showInputDialog("Nota da Prova 1:"));
+        double prova2 = Double.parseDouble(JOptionPane.showInputDialog("Nota da Prova 2:"));
+        double trabalho = Double.parseDouble(JOptionPane.showInputDialog("Nota do Trabalho:"));
+
+        double media = (prova1 + prova2 + trabalho) / 3;
+        String status = media >= 6 ? "Aprovado" : "Reprovado";
+
+        JOptionPane.showMessageDialog(null, String.format("Média: %.2f\nSituação: %s", media, status));
+    }
+}
+
+ 4. Calculadora de Aposentadoria
+
+Arquivo: CalculadoraAposentadoria.java
+
+import java.util.Scanner;
+
+public class CalculadoraAposentadoria {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Informe seu sexo (M/F): ");
+        char sexo = sc.next().toUpperCase().charAt(0);
+
+        System.out.print("Informe sua idade: ");
+        int idade = sc.nextInt();
+
+        System.out.print("Informe seus anos de contribuição: ");
+        int contribuicao = sc.nextInt();
+
+        boolean podeAposentar = false;
+        int faltam = 0;
+
+        if (sexo == 'M') {
+            if (idade >= 65 || contribuicao >= 35) podeAposentar = true;
+            else faltam = Math.min(65 - idade, 35 - contribuicao);
+        } else if (sexo == 'F') {
+            if (idade >= 62 || contribuicao >= 30) podeAposentar = true;
+            else faltam = Math.min(62 - idade, 30 - contribuicao);
+        }
+
+        if (podeAposentar)
+            System.out.println("Você já pode se aposentar!");
+        else
+            System.out.println("Faltam " + faltam + " anos para se aposentar.");
+
+        sc.close();
+    }
+}
+
+ 5. Circuito de Resistências
+
+Arquivo: CircuitoResistencias.java
+
+import java.util.Scanner;
+
+public class CircuitoResistencias {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double[] r = new double[4];
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Informe o valor da resistência " + (i + 1) + " (em ohms): ");
+            r[i] = sc.nextDouble();
+        }
+
+        double equivalente = r[0] + r[1] + r[2] + r[3];
+        double maior = Math.max(Math.max(r[0], r[1]), Math.max(r[2], r[3]));
+        double menor = Math.min(Math.min(r[0], r[1]), Math.min(r[2], r[3]));
+
+        System.out.printf("Resistência equivalente: %.2f Ω\nMaior resistência: %.2f Ω\nMenor resistência: %.2f Ω\n", equivalente, maior, menor);
+
+        sc.close();
+    }
+}
+
+ 6. Sistema de Login
+
+Arquivo: SistemaLogin.java
+
+import java.util.Scanner;
+
+public class SistemaLogin {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String usuarioCorreto = "java8";
+        String senhaCorreta = "java8";
+
+        for (int i = 1; i <= 3; i++) {
+            System.out.print("Login: ");
+            String login = sc.nextLine();
+            System.out.print("Senha: ");
+            String senha = sc.nextLine();
+
+            if (login.equals(usuarioCorreto) && senha.equals(senhaCorreta)) {
+                System.out.println("Acesso permitido! Bem-vindo ao sistema.");
+                sc.close();
+                return;
+            } else {
+                System.out.println("Login ou senha incorretos. Tentativas restantes: " + (3 - i));
+            }
+        }
+
+        System.out.println("Número máximo de tentativas atingido. Acesso bloqueado.");
+        sc.close();
+    }
+}
+
+ 7. Gerador de Tabuada
+
+Arquivo: GeradorTabuada.java
+
+import java.util.Scanner;
+
+public class GeradorTabuada {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite um número para ver sua tabuada: ");
+        int n = sc.nextInt();
+
+        System.out.println("\nTabuada do " + n + ":");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(n + " x " + i + " = " + (n * i));
+        }
+
+        sc.close();
+    }
+}
